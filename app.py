@@ -14,10 +14,6 @@ app.secret_key = 'yarin'
 
 api = Api(app)
 
-@app.before_first_request
-def create_tabel():
-    db.create_all()
-
 jwt = JWT(app, authenticate, identity) #/auth
 
 api.add_resource(Store, '/store/<string:name>') #localhost:5000/item/<name>
